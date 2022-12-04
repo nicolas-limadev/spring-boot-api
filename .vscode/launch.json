@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch SpringApiApplication",
+            "request": "launch",
+            "mainClass": "com.exemple.demo.SpringApiApplication",
+            "projectName": "spring-api"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-SpringApiApplication<spring-api>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.example.demo.SpringApiApplication",
+            "projectName": "spring-api",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
