@@ -1,10 +1,8 @@
 package com.exemple.demo.tarefas.facade;
 
 
-import java.util.ArrayList;
-import java.util.HashMap;
+
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 import com.exemple.demo.tarefas.Tarefa;
@@ -19,14 +17,13 @@ public class TarefasFacade {
 
     @Autowired
     private TarefaRepository repository;
-    
-    private static final Map<Long, TarefaDTO> tarefas = new HashMap<>();
+
 
     public TarefaDTO criar(TarefaDTO tarefaDTO){
         Tarefa tarefa = new Tarefa();
 
-        tarefa.setDescricao(tarefa.getDescricao());
-        tarefa.setTitulo(tarefa.getTitulo());
+        tarefa.setDescricao(tarefaDTO.getDescricao());
+        tarefa.setTitulo(tarefaDTO.getTitulo());
         repository.save(tarefa);
         tarefaDTO.setId(tarefa.getId());
 
@@ -34,7 +31,7 @@ public class TarefasFacade {
     }
 
     public TarefaDTO atualizar (TarefaDTO tarefaDTO, long tarefaId){
-        Tarefa tarefaDatabase = repository.getOne(tarefaId);
+        Tarefa tarefaDatabase = repository.getReferenceById(tarefaId);
         tarefaDatabase.setDescricao(tarefaDTO.getDescricao());
         tarefaDatabase.setTitulo(tarefaDTO.getTitulo());
 
